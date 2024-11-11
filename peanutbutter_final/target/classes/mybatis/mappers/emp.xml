@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.emp">
+	
+	<select id="selectpmPage" resultType="pmDTO" parameterType="map">
+		SELECT *
+FROM (
+    SELECT rownum AS rnum, 
+           Product_Code, 
+           Product_Name, 
+           Product_Image, 
+           Unit, 
+           Standard, 
+           Lead_Time, 
+           Barcode, 
+           Lot_Size, 
+           Shipping_Warehouse
+    FROM (
+        SELECT Product_Code, 
+               Product_Name, 
+               Product_Image, 
+               Unit, 
+               Standard, 
+               Lead_Time, 
+               Barcode, 
+               Lot_Size, 
+               Shipping_Warehouse
+        FROM TABLE_PM
+        <where>
+        	<if test="'code' == optionvalue">
+        	Product_Code like '%' || #{search} || '%'
+        	</if>
+        	<if test="'name' == optionvalue">
+        	Product_Name like '%' || #{search} || '%'
+        	</if>
+        </where>
+        ORDER BY Product_Code
+    )
+)
+WHERE rnum <![CDATA[ >= ]]>  #{start} AND rnum  <![CDATA[ <= ]]> #{end}
+	</select>
+	
+	<select id="totalpmPage" resultType="int">
+		select count(*) cnt from TABLE_PM
+	</select>
+	
+	<select id="selectSequence" resultType="long">
+		SELECT SEQ_PM_SEQUENCE.NEXTVAL FROM dual
+	</select>
+	
+	<insert id="insertPM" parameterType="pmDTO">
+		INSERT INTO TABLE_PM (Product_Code, Product_Name, Product_Image, Unit, Standard, Lead_Time, Barcode, Lot_Size, Shipping_Warehouse)
+		VALUES (
+		#{product_code},
+		#{product_name},
+		#{product_image},
+		#{unit},
+		#{standard},
+		#{lead_time},
+		#{barcode},
+		#{lot_size},
+		#{shipping_warehouse}		
+		)
+	</insert>
+	
+	<delete id="deletePM" parameterType="list">
+		DELETE FROM TABLE_PM 
+    	WHERE Product_Code IN
+    <foreach item="item" collection="list" open="(" separator="," close=")">
+        #{item}
+    </foreach>
+	</delete>
+	
+	<update id="modifyPM" parameterType="pmDTO">
+		 UPDATE TABLE_PM SET  
+        Product_Name = #{product_name}, 
+        Product_Image = #{product_image}, 
+        Unit = #{unit}, 
+        Standard = #{standard}, 
+        Lead_Time = #{lead_time}, 
+        Barcode = #{barcode}, 
+        Lot_Size = #{lot_size}, 
+        Shipping_Warehouse = #{shipping_warehouse}
+    WHERE Product_Code = #{product_code}
+	</update>
+	
+	<select id="selectOne" parameterType="string" resultType="pmDTO">
+		SELECT * FROM TABLE_PM where Product_Code = #{_parameter}
+	</select>
+	
+	<select id="selectpm_stockPage" resultType="pm_stockDTO" parameterType="map">
+		SELECT *
+			FROM (
+    		SELECT rownum AS rnum, 
+           		Product_Code, 
+           		Product_Name, 
+           		Product_Image, 
+           		Unit, 
+           		Standard,  
+           		Barcode, 
+           		Lot_Size, 
+           		Shipping_Warehouse,
+           		Stock_Amount, 
+           		Latest_Stock_Date,
+           		Product_Status
+    FROM (
+        SELECT Product_Code, 
+               Product_Name, 
+               Product_Image, 
+               Unit, 
+               Standard, 
+               Barcode, 
+               Lot_Size, 
+               Shipping_Warehouse,
+               Stock_Amount, 
+               Latest_Stock_Date,
+               Product_Status
+        FROM TABLE_PM_STOCK
+        <where>
+        	<if test="'code' == optionvalue">
+        	Product_Code like '%' || #{search} || '%'
+        	</if>
+        	<if test="'name' == optionvalue">
+        	Product_Name like '%' || #{search} || '%'
+        	</if>
+        </where>
+        ORDER BY Product_Code
+    )
+)
+WHERE rnum <![CDATA[ >= ]]>  #{start} AND rnum  <![CDATA[ <= ]]> #{end}
+	</select>
+	
+	<select id="totalpm_stockPage" resultType="int">
+		select count(*) cnt from TABLE_PM_STOCK
+	</select>
+	
+	<delete id="deletePM_Stock" parameterType="list">
+		DELETE FROM TABLE_PM_STOCK 
+    	WHERE Product_Code IN
+    <foreach item="item" collection="list" open="(" separator="," close=")">
+        #{item}
+    </foreach>
+	</delete>
+	
+	<insert id="insert_PM_stock" parameterType="pmDTO">
+		INSERT INTO TABLE_PM_STOCK (Product_Code, Product_Name, Product_Image, Unit, Standard, Barcode, Lot_Size, Shipping_Warehouse, STOCK_AMOUNT)
+		VALUES (
+		#{product_code},
+		#{product_name},
+		#{product_image},
+		#{unit},
+		#{standard},
+		#{barcode},
+		#{lot_size},
+		#{shipping_warehouse},
+		0	
+		)
+	</insert>
+	
+	<update id="modifyPM_stock" parameterType="spDTO">
+		 UPDATE TABLE_PM_STOCK SET
+		LATEST_STOCK_DATE = #{plan_start_date},  
+        STOCK_AMOUNT = STOCK_AMOUNT + #{plan_amount} 
+    WHERE Product_Code = #{product_code}
+	</update>
+	
+	<update id="modifyPM_status_stock" parameterType="shDTO">
+		 UPDATE TABLE_PM_STOCK SET
+		LATEST_STOCK_DATE = #{shipping_date},  
+        STOCK_AMOUNT = STOCK_AMOUNT - #{shipping_amount}
+    WHERE Product_Code = #{product_code}
+	</update>
+	
+	<!-- <insert parameterType=empDTO> // resultType을 안써도 자동으로 얉은 복사가 되어 자동으로 DTO에 저장된다
+		<selectKey keyProperty="empno" resultType="int" order="BEFORE">
+			select seq_emp.nextval from dual
+		</selectKey>
+	</insert>
+	
+	<insert id="insertEMP3" 
+			parameterType=empDTO
+			useGeneratedKeys="true" // gernerated된(시퀀스 값을 따온)걸 키로 사용할 거다 라는 의미
+			keyProperty="empno"> // resultType을 안써도 자동으로 얉은 복사가 되어 자동으로 DTO에 저장된다
+		
+		INSERT INTO emp0 (
+		empno,
+		ename,
+		hiredate
+		) VALUES (
+		seq_emp.nextval,
+		#{ename},
+		#{hiredate}
+		)
+	</insert> -->
+	
+</mapper>

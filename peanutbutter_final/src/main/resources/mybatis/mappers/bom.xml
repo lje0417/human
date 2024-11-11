@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.bom">
+	
+	<select id="selectbomPage" resultType="bomDTO" parameterType="map">
+		SELECT *
+FROM (
+    SELECT rownum AS rnum, 
+		   BOM_NUMBER,    	
+           PRODUCT_CODE, 
+           PRODUCT_NAME, 
+           PART_CODE, 
+           PART_NAME, 
+           PART_MODELNAME, 
+           PART_STANDARD, 
+           PART_UNIT,
+           PART_AMOUNT
+    FROM (
+        SELECT BOM_NUMBER,
+        	   PRODUCT_CODE, 
+               PRODUCT_NAME, 
+               PART_CODE, 
+               PART_NAME, 
+               PART_MODELNAME, 
+               PART_STANDARD, 
+               PART_UNIT,
+               PART_AMOUNT
+        FROM TABLE_BOM
+        <where>
+        	<if test="'product_number' == optionvalue">
+        	PRODUCT_CODE like '%' || #{search} || '%'
+        	</if>
+        	<if test="'product_name' == optionvalue">
+        	PRODUCT_NAME like '%' || #{search} || '%'
+        	</if>
+        </where>
+        ORDER BY PRODUCT_CODE
+    )
+)
+WHERE rnum <![CDATA[ >= ]]>  #{start} AND rnum  <![CDATA[ <= ]]> #{end}
+	</select>
+	
+	<select id="totalbomPage" resultType="int">
+		select count(*) cnt from TABLE_BOM
+	</select>
+	
+	<select id="selectSequence" resultType="long">
+		SELECT SEQ_PM_SEQUENCE.NEXTVAL FROM dual
+	</select>
+	
+	<select id="selectPM_data" resultType="pmDTO">
+		SELECT PRODUCT_CODE, PRODUCT_NAME, UNIT, SHIPPING_WAREHOUSE FROM TABLE_PM
+	</select>
+	
+	<select id="selectPT_data" resultType="ptDTO">
+		SELECT PART_CODE, PART_NAME, PART_UNIT, PART_STANDARD, PART_MODELNAME, PART_VENDOR1, PART_VENDOR2 FROM TABLE_PT
+	</select>
+	
+	<insert id="insertBOM" parameterType="ptDTO">
+		INSERT INTO TABLE_BOM (BOM_NUMBER, PRODUCT_CODE, PRODUCT_NAME, PART_CODE, PART_NAME, PART_MODELNAME, PART_STANDARD, PART_UNIT, PART_AMOUNT)
+		VALUES (
+		#{bom_number},
+		#{product_code},
+		#{product_name},
+		#{part_code},
+		#{part_name},
+		#{part_modelname},
+		#{part_standard},
+		#{part_unit},
+		#{part_amount}
+		)
+	</insert>
+	
+</mapper>

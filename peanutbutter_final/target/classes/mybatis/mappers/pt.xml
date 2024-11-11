@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.pt">
+	
+	<select id="selectptPage" resultType="ptDTO" parameterType="map">
+		SELECT *
+FROM (
+    SELECT rownum AS rnum, 
+           PART_CODE, 
+           PART_NAME, 
+           PART_IMAGE, 
+           PART_UNIT, 
+           Part_Standard, 
+           PART_MODELNAME, 
+           PART_SORT, 
+           PART_VENDOR1, 
+           PART_VENDOR2,
+           RECEVING_WAREHOUSE,
+           PART_BARCODE
+    FROM (
+        SELECT PART_CODE, 
+           PART_NAME, 
+           PART_IMAGE, 
+           PART_UNIT, 
+           Part_Standard, 
+           PART_MODELNAME, 
+           PART_SORT, 
+           PART_VENDOR1, 
+           PART_VENDOR2,
+           RECEVING_WAREHOUSE,
+           PART_BARCODE
+        FROM TABLE_PT
+        <where>
+        	<if test="'part_code' == optionvalue">
+        	Part_Code like '%' || #{search} || '%'
+        	</if>
+        	<if test="'part_modelname' == optionvalue">
+        	Part_Modelname like '%' || #{search} || '%'
+        	</if>
+        </where>
+        ORDER BY Part_Code
+    )
+)
+WHERE rnum <![CDATA[ >= ]]>  #{start} AND rnum  <![CDATA[ <= ]]> #{end}
+	</select>
+	
+	<select id="totalptPage" resultType="int">
+		select count(*) cnt from TABLE_PT
+	</select>
+	
+	<select id="selectSequence" resultType="long">
+		SELECT SEQ_PM_SEQUENCE.NEXTVAL FROM dual
+	</select>
+	
+	<insert id="insertPT" parameterType="ptDTO">
+		INSERT INTO TABLE_PT (PART_CODE, PART_NAME, PART_IMAGE, PART_UNIT, PART_STANDARD, PART_MODELNAME, PART_SORT, PART_VENDOR1, PART_VENDOR2, RECEVING_WAREHOUSE, PART_BARCODE)
+		VALUES (
+		#{part_code},
+		#{part_name},
+		#{part_image},
+		#{part_unit},
+		#{part_standard},
+		#{part_modelname},
+		#{part_sort},
+		#{part_vendor1},
+		#{part_vendor2},	
+		#{receving_warehouse},	
+		#{part_barcode}
+		)
+	</insert>
+	
+	<delete id="deletePT" parameterType="list">
+		DELETE FROM TABLE_PT 
+    	WHERE Part_Code IN
+    <foreach item="item" collection="list" open="(" separator="," close=")">
+        #{item}
+    </foreach>
+	</delete>
+	
+	<update id="modifyPT" parameterType="ptDTO">
+		 UPDATE TABLE_PT SET  
+        PART_NAME = #{part_name}, 
+        PART_IMAGE = #{part_image}, 
+        PART_UNIT = #{part_unit}, 
+        PART_STANDARD = #{part_standard}, 
+        PART_MODELNAME = #{part_modelname}, 
+        PART_SORT = #{part_sort}, 
+        PART_VENDOR1 = #{part_vendor1}, 
+        PART_VENDOR2 = #{part_vendor2},
+        RECEVING_WAREHOUSE = #{receving_warehouse},
+        PART_BARCODE = #{part_barcode},
+    WHERE PART_NAME = #{part_name}
+	</update>
+	
+	<select id="selectOne" parameterType="string" resultType="ptDTO">
+		SELECT * FROM TABLE_PT where Part_Code = #{_parameter}
+	</select>
+	
+	<select id="selectpt_stockPage" resultType="pt_stockDTO" parameterType="map">
+		SELECT *
+			FROM (
+    		SELECT rownum AS rnum, 
+           		PART_CODE, 
+           		PART_NAME, 
+           		PART_IMAGE, 
+           		PART_UNIT, 
+           		PART_STANDARD,  
+           		PART_MODELNAME, 
+           		PART_VENDOR1, 
+           		PART_VENDOR2,
+           		RECEVING_WAREHOUSE, 
+           		STOCK_AMOUNT,
+           		LATEST_STOCK_DATE,
+           		PART_BARCODE
+    FROM (
+        SELECT PART_CODE, 
+               PART_NAME, 
+               PART_IMAGE, 
+               PART_UNIT, 
+               PART_STANDARD, 
+               PART_MODELNAME, 
+               PART_VENDOR1, 
+               PART_VENDOR2,
+               RECEVING_WAREHOUSE, 
+               STOCK_AMOUNT,
+               LATEST_STOCK_DATE,
+               PART_BARCODE
+        FROM TABLE_PT_STOCK
+        <where>
+        	<if test="'part_code' == optionvalue">
+        	Part_Code like '%' || #{search} || '%'
+        	</if>
+        	<if test="'part_modelname' == optionvalue">
+        	PART_MODELNAME like '%' || #{search} || '%'
+        	</if>
+        	<if test="'receving_warehouse' == optionvalue">
+        	RECEVING_WAREHOUSE like '%' || #{search} || '%'
+        	</if>
+        </where>
+        ORDER BY PART_NAME
+    )
+)
+WHERE rnum <![CDATA[ >= ]]>  #{start} AND rnum  <![CDATA[ <= ]]> #{end}
+	</select>
+	
+	<select id="totalpt_stockPage" resultType="int">
+		select count(*) cnt from TABLE_PT_STOCK
+	</select>
+	
+	<delete id="deletePT_Stock" parameterType="list">
+		DELETE FROM TABLE_PT_STOCK 
+    	WHERE Part_Code IN
+    <foreach item="item" collection="list" open="(" separator="," close=")">
+        #{item}
+    </foreach>
+	</delete>
+	
+	<insert id="insert_PT_stock" parameterType="ptDTO">
+		INSERT INTO TABLE_PT_STOCK (PART_CODE, PART_NAME, PART_IMAGE, PART_UNIT, PART_STANDARD, PART_SORT, PART_MODELNAME, PART_VENDOR1, PART_VENDOR2, RECEVING_WAREHOUSE, STOCK_AMOUNT, PART_BARCODE)
+		VALUES (
+		#{part_code},
+		#{part_name},
+		#{part_image},
+		#{part_unit},
+		#{part_standard},
+		#{part_sort},
+		#{part_modelname},
+		#{part_vendor1},
+		#{part_vendor2},	
+		#{receving_warehouse},	
+		0,	
+		#{part_barcode}	
+		)
+	</insert>
+	
+	<update id="modifyPT_stock" parameterType="stDTO">
+		 UPDATE TABLE_PT_STOCK SET
+		LATEST_STOCK_DATE = #{stocking_date},  
+        STOCK_AMOUNT = STOCK_AMOUNT + #{stocking_amount} 
+    WHERE PART_CODE = #{part_code}
+	</update>
+	
+</mapper>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.pl_sp">
+	
+	<select id="selectplPage" resultType="plDTO" parameterType="map">
+		SELECT *
+FROM (
+    SELECT rownum AS rnum, 
+           PLAN_NUMBER, 
+           PRODUCT_CODE, 
+           PRODUCT_NAME, 
+           PLAN_START_DATE, 
+           PLAN_END_DATE, 
+           PLAN_AMOUNT, 
+           PLAN_REMARKS
+    FROM (
+        SELECT PLAN_NUMBER, 
+               PRODUCT_CODE, 
+               PRODUCT_NAME, 
+               PLAN_START_DATE, 
+               PLAN_END_DATE, 
+               PLAN_AMOUNT, 
+               PLAN_REMARKS
+        FROM TABLE_PL
+        <where>
+        	<if test="'plan_number' == optionvalue">
+        	PLAN_NUMBER like '%' || #{search} || '%'
+        	</if>
+        	<if test="'product_name' == optionvalue">
+        	Product_Name like '%' || #{search} || '%'
+        	</if>
+        </where>
+        ORDER BY PLAN_NUMBER
+    )
+)
+WHERE rnum <![CDATA[ >= ]]>  #{start} AND rnum  <![CDATA[ <= ]]> #{end}
+	</select>
+	
+	<select id="totalplPage" resultType="int">
+		select count(*) cnt from TABLE_PL
+	</select>
+	
+	<select id="selectSequence" resultType="long">
+		SELECT SEQ_PM_SEQUENCE.NEXTVAL FROM dual
+	</select>
+	
+	<insert id="insertPL" parameterType="plDTO">
+		INSERT INTO TABLE_PL (PLAN_NUMBER, PRODUCT_CODE, PRODUCT_NAME, PLAN_START_DATE, PLAN_END_DATE, PLAN_AMOUNT, PLAN_REMARKS)
+		VALUES (
+		#{plan_number},
+		#{product_code},
+		#{product_name},
+		#{plan_start_date},
+		#{plan_end_date},
+		#{plan_amount},
+		#{plan_remarks}		
+		)
+	</insert>
+	
+	<select id="selectPM_data" resultType="pmDTO">
+		SELECT PRODUCT_CODE, PRODUCT_NAME, UNIT, SHIPPING_WAREHOUSE FROM TABLE_PM
+	</select>
+	
+	<delete id="deletePL" parameterType="list">
+		DELETE FROM TABLE_PL 
+    	WHERE PLAN_NUMBER IN
+    <foreach item="item" collection="list" open="(" separator="," close=")">
+        #{item}
+    </foreach>
+	</delete>
+	
+	<update id="modifyPL" parameterType="plDTO">
+		 UPDATE TABLE_PL SET  
+        PLAN_NUMBER = #{plan_number}, 
+        PRODUCT_CODE = #{product_code}, 
+        PRODUCT_NAME = #{product_name}, 
+        PLAN_START_DATE = #{plan_start_date}, 
+        PLAN_END_DATE = #{plan_end_date}, 
+        PLAN_AMOUNT = #{plan_amount}, 
+        PLAN_REMARKS = #{plan_remarks}
+    WHERE PLAN_NUMBER = #{plan_number}
+	</update>
+	
+	<select id="selectPM_data_one" parameterType="string" resultType="pmDTO">
+		SELECT * FROM TABLE_PM
+        <where>
+            <if test="value != null">
+                PRODUCT_CODE = #{_parameter}
+            </if>
+        </where>
+	</select>
+	
+	<select id="selectPL_data_one" parameterType="string" resultType="plDTO">
+		SELECT * FROM TABLE_PL WHERE PLAN_NUMBER = #{_parameter}
+	</select>
+	
+	<select id="selectspPage" resultType="spDTO" parameterType="map">
+		SELECT *
+FROM (
+    SELECT ROWNUM AS RNUM, 
+           SPECIFICATION_NUMBER, 
+           PRODUCT_CODE, 
+           PRODUCT_NAME, 
+           PLAN_START_DATE, 
+           PLAN_END_DATE, 
+           PLAN_REG_DATE, 
+           PLAN_AMOUNT,
+           SPECIFICATION_STATUS
+    FROM (
+        SELECT SPECIFICATION_NUMBER, 
+               PRODUCT_CODE, 
+               PRODUCT_NAME, 
+               PLAN_START_DATE, 
+               PLAN_END_DATE, 
+               PLAN_REG_DATE, 
+               PLAN_AMOUNT,
+               SPECIFICATION_STATUS
+        FROM TABLE_SP
+        <where>
+        	<if test="'sp_number' == optionvalue">
+        	SPECIFICATION_NUMBER like '%' || #{search} || '%'
+        	</if>
+        	<if test="'pm_name' == optionvalue">
+        	Product_Name like '%' || #{search} || '%'
+        	</if>
+        </where>
+        ORDER BY PLAN_START_DATE
+    )
+)
+WHERE rnum <![CDATA[ >= ]]>  #{start} AND rnum  <![CDATA[ <= ]]> #{end}
+	</select>
+	
+	<select id="totalspPage" resultType="int">
+		select count(*) cnt from TABLE_SP
+	</select>
+	
+	<insert id="insertSP" parameterType="spDTO">
+		INSERT INTO TABLE_SP (SPECIFICATION_NUMBER, PRODUCT_CODE, PRODUCT_NAME, PLAN_START_DATE, PLAN_END_DATE, PLAN_REG_DATE, PLAN_AMOUNT)
+		VALUES (
+		#{specification_number},
+		#{product_code},
+		#{product_name},
+		#{plan_start_date},
+		#{plan_end_date},
+		SYSDATE,
+		#{plan_amount}	
+		)
+	</insert>
+	
+	<select id="selectSequence_sp" resultType="long">
+		SELECT SEQ_PM_SEQUENCE.NEXTVAL FROM dual
+	</select>
+	
+	<delete id="deleteSP" parameterType="list">
+		DELETE FROM TABLE_SP 
+    	WHERE SPECIFICATION_NUMBER IN
+    <foreach item="item" collection="list" open="(" separator="," close=")">
+        #{item}
+    </foreach>
+	</delete>
+	
+	<select id="selectsp_datail_Page" resultType="map" parameterType="string">
+		SELECT p.process_code,
+        	   p.process_name,
+        	   sp.product_code,
+        	   sp.product_name,
+        	   sp.plan_start_date,
+        	   sp.plan_reg_date,
+     		   sp.plan_amount
+		from process p, TABLE_SP sp
+		where p.product_code = sp.product_code
+		and sp.plan_start_date = #{_parameter}
+	</select>
+	
+	<update id="modifySP" parameterType="spDTO">
+		 UPDATE TABLE_SP SET
+		SPECIFICATION_STATUS = '${specification_status}'
+    WHERE SPECIFICATION_NUMBER = ${specification_number}
+	</update>
+	
+	<select id="selectSP_data_one" parameterType="spDTO" resultType="spDTO">
+		SELECT SPECIFICATION_NUMBER, PRODUCT_CODE, PLAN_START_DATE, PLAN_AMOUNT
+		FROM TABLE_SP
+		WHERE SPECIFICATION_STATUS = 'complete'
+		AND SPECIFICATION_NUMBER = ${specification_number}
+	</select>
+	
+	<select id="selectflPage" resultType="flDTO" parameterType="map">
+		SELECT UNDERPROCESS, PROCESS_CODE, PROCESSNAME2, IMAGE, PRODUCTCONTENT
+		FROM PROCESS2
+		WHERE PROCESS_CODE = #{process_code}
+	</select>
+	
+	<select id="totalflPage" resultType="int">
+		select count(*) cnt from process2
+	</select>
+	
+</mapper>

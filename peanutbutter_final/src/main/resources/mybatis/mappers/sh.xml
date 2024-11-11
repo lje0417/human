@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.sh">
+	
+	<select id="selectshPage" resultType="shDTO" parameterType="map">
+		SELECT *
+FROM (
+    SELECT rownum AS rnum, 
+           SHIPPING_NUMBER, 
+           SHIPPING_DATE, 
+           SHIPPING_ARRIVAL, 
+           SHIPPING_CURRENCY, 
+           SHIPPING_AMOUNT,
+           SHIPPING_WAREHOUSE,
+           SHIPPING_STATUS,
+           PRODUCT_CODE, 
+           PRODUCT_NAME
+    FROM (
+        SELECT SHIPPING_NUMBER, 
+               SHIPPING_DATE, 
+               SHIPPING_ARRIVAL, 
+               SHIPPING_CURRENCY, 
+               SHIPPING_AMOUNT,
+               SHIPPING_WAREHOUSE, 
+               SHIPPING_STATUS,
+               PRODUCT_CODE, 
+               PRODUCT_NAME
+        FROM TABLE_SHIPPING
+        <where>
+        	<if test="'shipping_number' == optionvalue">
+        	SHIPPING_NUMBER like '%' || #{search} || '%'
+        	</if>
+        	<if test="'product_name' == optionvalue">
+        	Product_Name like '%' || #{search} || '%'
+        	</if>
+        </where>
+        ORDER BY SHIPPING_DATE
+    )
+)
+WHERE rnum <![CDATA[ >= ]]>  #{start} AND rnum  <![CDATA[ <= ]]> #{end}
+	</select>
+	
+	<select id="totalshPage" resultType="int">
+		select count(*) cnt from TABLE_SHIPPING
+	</select>
+	 
+	
+	<select id="selectSequence" resultType="long">
+		SELECT SEQ_PM_SEQUENCE.NEXTVAL FROM dual
+	</select>
+	
+	<insert id="insertSH" parameterType="shDTO">
+		INSERT INTO TABLE_SHIPPING (SHIPPING_NUMBER, SHIPPING_DATE, SHIPPING_ARRIVAL, SHIPPING_CURRENCY, SHIPPING_AMOUNT, SHIPPING_WAREHOUSE, PRODUCT_CODE, PRODUCT_NAME)
+		VALUES (
+		#{shipping_number},
+		#{shipping_date},
+		#{shipping_arrival},
+		#{shipping_currency},
+		#{shipping_amount},
+		#{shipping_warehouse},
+		#{product_code},
+		#{product_name}		
+		)
+	</insert>
+	
+	<delete id="deleteSH" parameterType="list">
+		DELETE FROM TABLE_SHIPPING 
+    	WHERE SHIPPING_NUMBER IN
+    <foreach item="item" collection="list" open="(" separator="," close=")">
+        #{item}
+    </foreach>
+	</delete>
+	
+	<update id="modifySH" parameterType="shDTO">
+		 UPDATE TABLE_SHIPPING SET  
+        SHIPPING_NUMBER = #{shipping_number}, 
+        SHIPPING_DATE = #{shipping_date}, 
+        SHIPPING_ARRIVAL = #{shipping_arrival}, 
+        SHIPPING_CURRENCY = #{shipping_currency}, 
+        SHIPPING_AMOUNT = #{shipping_amount}, 
+        SHIPPING_WAREHOUSE = #{shipping_warehouse}, 
+        PRODUCT_CODE = #{product_code}
+    WHERE SHIPPING_NUMBER = #{shipping_number}
+	</update>
+	
+	<select id="selectSH_data_one" parameterType="string" resultType="shDTO">
+		SELECT * FROM TABLE_SHIPPING WHERE SHIPPING_NUMBER = #{_parameter}
+	</select>
+	
+	<select id="select_complete_data" parameterType="shDTO" resultType="shDTO">
+		SELECT SHIPPING_NUMBER, PRODUCT_CODE, SHIPPING_DATE, SHIPPING_AMOUNT
+		FROM TABLE_SHIPPING
+		WHERE SHIPPING_STATUS = 'complete'
+		AND SHIPPING_NUMBER = ${shipping_number}
+	</select>
+	
+	<update id="modifySH_status" parameterType="shDTO">
+		 UPDATE TABLE_SHIPPING SET
+		SHIPPING_STATUS = '${shipping_status}'
+    WHERE SHIPPING_NUMBER = ${shipping_number}
+	</update>
+	
+</mapper>

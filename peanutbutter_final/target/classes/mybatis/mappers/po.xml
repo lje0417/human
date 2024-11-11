@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.po">
+	
+	<select id="selectpoPage" resultType="poDTO" parameterType="map">
+		SELECT *
+FROM (
+    SELECT rownum AS rnum, 
+           purchase_order_number, 
+           purchase_order_date, 
+           warehousing_duedate, 
+           purchase_order_partner, 
+           purchase_order_currency,
+           purchase_order_amount,
+           part_code, 
+           part_modelname
+    FROM (
+        SELECT purchase_order_number, 
+               purchase_order_date, 
+               warehousing_duedate, 
+               purchase_order_partner, 
+               purchase_order_currency,
+               purchase_order_amount, 
+               part_code, 
+               part_modelname
+        FROM TABLE_PURCHASE_ORDER
+        <where>
+        	<if test="'shipping_number' == optionvalue">
+        	PURCHASE_ORDER_NUMBER like '%' || #{search} || '%'
+        	</if>
+        	<if test="'product_name' == optionvalue">
+        	PART_MODELNAME like '%' || #{search} || '%'
+        	</if>
+        </where>
+        ORDER BY PURCHASE_ORDER_DATE
+    )
+)
+WHERE rnum <![CDATA[ >= ]]>  #{start} AND rnum  <![CDATA[ <= ]]> #{end}
+	</select>
+	
+	<select id="totalpoPage" resultType="int">
+		select count(*) cnt from TABLE_PURCHASE_ORDER
+	</select>
+	 
+	
+	<select id="selectSequence" resultType="long">
+		SELECT SEQ_PM_SEQUENCE.NEXTVAL FROM dual
+	</select>
+	
+	<insert id="insertPO" parameterType="poDTO">
+		INSERT INTO TABLE_PURCHASE_ORDER (purchase_order_number, purchase_order_date, warehousing_duedate, purchase_order_partner, purchase_order_currency, purchase_order_amount, purchase_order_warehouse, part_code, part_modelname)
+		VALUES (
+		#{purchase_order_number},
+		#{purchase_order_date},
+		#{warehousing_duedate},
+		#{purchase_order_partner},
+		#{purchase_order_currency},
+		#{purchase_order_amount},
+		#{purchase_order_warehouse},
+		#{part_code},
+		#{part_modelname}		
+		)
+	</insert>
+	
+	<select id="selectPT_data" resultType="ptDTO">
+		SELECT PART_CODE, PART_MODELNAME, PART_VENDOR1, PART_VENDOR2, RECEVING_WAREHOUSE  FROM TABLE_PT
+	</select>
+	
+	<delete id="deletePO" parameterType="list">
+		DELETE FROM TABLE_PURCHASE_ORDER 
+    	WHERE PURCHASE_ORDER_NUMBER IN
+    <foreach item="item" collection="list" open="(" separator="," close=")">
+        #{item}
+    </foreach>
+	</delete>
+	
+	<update id="modifyPO" parameterType="poDTO">
+		 UPDATE TABLE_PURCHASE_ORDER SET  
+        PURCHASE_ORDER_NUMBER = #{purchase_order_number}, 
+        PURCHASE_ORDER_DATE = #{purchase_order_date}, 
+        WAREHOUSING_DUEDATE = #{warehousing_duedate}, 
+        PURCHASE_ORDER_PARTNER = #{purchase_order_partner}, 
+        PURCHASE_ORDER_CURRENCY = #{purchase_order_currency}, 
+        PURCHASE_ORDER_AMOUNT = #{purchase_order_amount}, 
+        PURCHASE_ORDER_WAREHOUSE = #{purchase_order_warehouse},
+        PART_CODE = #{part_code},
+        PART_MODELNAME = #{part_modelname}
+    WHERE PURCHASE_ORDER_NUMBER = #{purchase_order_number}
+	</update>
+	
+	<select id="selectPO_data_one" parameterType="string" resultType="poDTO">
+		SELECT * FROM TABLE_PURCHASE_ORDER WHERE PURCHASE_ORDER_NUMBER = #{_parameter}
+	</select>
+	
+</mapper>

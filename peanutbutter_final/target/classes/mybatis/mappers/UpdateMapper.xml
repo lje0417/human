@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="human.class1.ajax.dao.ProcessDAO2">
+
+    <insert id="saveProcess" parameterType="human.class1.ajax.dto.Process3">
+        INSERT INTO process2 (underprocess, processname2, image, productcontent, process_code)
+        VALUES (#{underProcess}, #{processName}, #{image}, #{productContent}, #{processCode})
+    </insert>
+
+<update id="updateProcess" parameterType="human.class1.ajax.dto.Process">
+    UPDATE process
+    SET
+        process_name = #{processName},
+        process_category = #{processCategory},
+        is_used = #{isUsed},
+        cycle_time = #{cycleTime},
+        product_code = #{productCode}
+    WHERE process_code = #{processCodeHidden}
+</update>
+
+
+    <delete id="deleteProcess" parameterType="String">
+        DELETE FROM process2 WHERE process_code = #{processCode}
+    </delete>
+</mapper>

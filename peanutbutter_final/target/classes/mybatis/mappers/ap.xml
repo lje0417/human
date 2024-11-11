@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.ap">
+	
+	<select id="selectap" resultType="map">
+		SELECT p.process_code,
+        	   p.process_name,
+        	   sp.product_code,
+        	   sp.product_name,
+        	   sp.plan_start_date,
+        	   sp.plan_reg_date,
+     		   sp.plan_amount,
+     		   sp.specification_number
+		from process p, TABLE_SP sp
+		where p.product_code = sp.product_code
+		 order by plan_start_date	
+	</select>
+	
+	<insert id="insertAP" parameterType="map">
+		INSERT INTO TABLE_AP (PLAN_AMOUNT, PROCESS_NAME, PROCESS_CODE, PRODUCT_CODE, PRODUCT_NAME, PLAN_REG_DATE, PLAN_START_DATE, SPECIFICATION_NUMBER)
+		VALUES (
+		#{PLAN_AMOUNT},
+		#{PROCESS_NAME},
+		#{PROCESS_CODE},
+		#{PRODUCT_CODE},
+		#{PRODUCT_NAME},		
+		#{PLAN_REG_DATE},		
+		#{PLAN_START_DATE},		
+		#{SPECIFICATION_NUMBER}		
+		)
+	</insert>
+	
+</mapper>

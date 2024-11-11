@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="human.class1.ajax.mapper.ProcessMapper">
+    
+    <insert id="saveProcess" parameterType="human.class1.ajax.dto.Process">
+        INSERT INTO process (process_code, process_name, process_category, is_used, cycle_time, product_code)
+        VALUES (#{processCode}, #{processName}, #{processCategory}, #{isUsed}, #{cycleTime}, #{productCode})
+    </insert>
+
+    <insert id="saveProcess2" parameterType="human.class1.ajax.dto.Process2">
+        INSERT INTO process2 (underprocess, processname2, image, productcontent, process_code)
+        VALUES (#{underProcess}, #{processName2}, #{image}, #{productContent}, #{processCode})
+    </insert>
+
+    <select id="getProcessByCode" resultType="human.class1.ajax.dto.Process">
+        SELECT * FROM process WHERE process_code = #{processCode}
+    </select>
+
+    <delete id="deleteProcess" parameterType="String">
+        DELETE FROM process WHERE process_code = #{processCode}
+    </delete>
+
+    <delete id="deleteProcess2" parameterType="String">
+        DELETE FROM process2 WHERE process_code = #{processCode}
+    </delete>
+
+</mapper>
