@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="human.class1.ajax.boarddao.BoardDAO">
+
+    <!-- 전체 게시글 조회 -->
+    <select id="selectAll" resultType="human.class1.ajax.boarddto.BoardDTO">
+        SELECT * FROM board ORDER BY bno DESC
+    </select>
+
+    <!-- 게시글 상세 조회 -->
+    <select id="selectOne" parameterType="int" resultType="human.class1.ajax.boarddto.BoardDTO">
+        SELECT * FROM board WHERE bno = #{bno}
+    </select>
+
+    <!-- 게시글 등록 -->
+    <insert id="insert" parameterType="human.class1.ajax.boarddto.BoardDTO">
+        INSERT INTO board (bno, notice, title, content, ename, crDate)
+        VALUES (seq_board.NEXTVAL, #{notice}, #{title}, #{content}, #{ename}, SYSDATE)
+    </insert>
+
+    <!-- 게시글 수정 -->
+    <update id="updateOne" parameterType="human.class1.ajax.boarddto.BoardDTO">
+        UPDATE board SET title = #{title}, ename = #{ename}, content = #{content} WHERE bno = #{bno}
+    </update>
+
+    <!-- 게시글 삭제 -->
+    <delete id="deleteOne" parameterType="int">
+        DELETE FROM board WHERE bno = #{bno}
+    </delete>
+
+    <!-- 페이징 처리된 게시글 목록 조회 -->
+    <select id="selectBoardPage" parameterType="map" resultType="human.class1.ajax.boarddto.BoardDTO">
+        SELECT * FROM (
+            SELECT rownum rnum, bno, notice, title, ename, crDate
+            FROM (
+                SELECT bno, notice, title, ename, crDate
+                FROM board
+                ORDER BY notice DESC, bno DESC
+            )
+        ) WHERE rnum BETWEEN #{start} AND #{end}
+    </select>
+
+    <!-- 총 게시글 수 조회 -->
+    <select id="totalBoardCount" resultType="int">
+        SELECT COUNT(*) FROM board
+    </select>
+
+</mapper>
+	
