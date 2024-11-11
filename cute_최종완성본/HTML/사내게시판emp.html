@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandoo</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/CSS/사내게시판.css">
+</head>
+
+<body>
+    <!-- 메인 -->
+    <div class="category">
+
+        <!-- 메뉴 아이콘 -->
+        <div class="menu-icon">
+            <img class="menu-icon" src="/image/menu.png">
+        </div>
+
+        <!-- 로고 아이콘 -->
+        <div class="category-item">
+            <a href="/indexemp.html" class="category-link"><img class="logo-icon" src="/image/logo.png"></a>
+        </div>
+
+        <!-- 카테고리 -->
+        <div class="category-item">
+            <a href="/HTML/BOMemp.html" class="category-link">BOM</a>
+        </div>
+
+        <div class="category-item">
+            <a href="/HTML/작업지시서(작업자용)emp.html" class="category-link">생산계획</a>
+        </div>
+
+        <div class="category-item">
+            <a href="/HTML/재고현황emp.html" class="category-link">재고관리</a>
+        </div>
+
+        <div class="category-item">
+            <a href="/HTML/생산현황emp.html" class="category-link">공정관리</a>
+        </div>
+
+        <div class="category-item">
+            <a href="/HTML/불량률파악보고서emp.html" class="category-link">불량률파악보고서</a>
+        </div>
+        <div class="category-item">
+            <a href="/HTML/마이페이지emp.html"><img class="mypage-icon" src="/image/mypage.png"></a>
+        </div>
+
+    </div>
+    <!-- 사이드바 -->
+    <div class="sidebar">
+        <ul id="sidebar-content">
+            <li><a href="/HTML/마이페이지emp.html">마이페이지</a></li>
+            <li><a href="/HTML/사내게시판emp.html" class=" title ">사내게시판</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h1>사내 게시판</h1>
+        <div id="id"></div>
+        <button id="write-button">글쓰기</button>
+        <table id="posts-table">
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>카테고리</th>
+                    <th>제목</th>
+                    <th>날짜</th>
+                    <th>글쓴이</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 게시글 목록이 여기에 추가됩니다 -->
+            </tbody>
+        </table>
+    </div>
+    <script src="/JS/사내게시판.js"></script>
+</body>
+
+</html>

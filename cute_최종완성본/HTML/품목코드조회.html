@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandoo</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/CSS/품목코드조회.css">
+</head>
+
+<body>
+    <!-- 메인 -->
+    <div class="category">
+
+        <!-- 메뉴 아이콘 -->
+        <div class="menu-icon">
+            <img class="menu-icon" src="/image/menu.png">
+        </div>
+
+        <!-- 로고 아이콘 -->
+        <div class="category-item">
+            <a href="/index.html" class="category-link"><img class="logo-icon" src="/image/logo.png"></a>
+        </div>
+
+        <!-- 카테고리 -->
+        <div class="category-item">
+            <a href="/HTML/품목코드조회.html" class="category-link title">기준관리</a>
+            <div class="_category">
+                <a href="/HTML/품목코드조회.html" class="category-link title">품목 코드 조회</a><br>
+                <a href="/HTML/BOM.html" class="category-link">BOM(레시피관리)</a><br>
+                <a href="/HTML/거래처관리.html" class="category-link">거래처 관리</a><br>
+                <a href="/HTML/에러코드.html" class="category-link">에러코드</a><br>
+            </div>
+        </div>
+        <div class="category-item">
+            <a href="/HTML/발주확인.html" class="category-link">생산계획</a>
+            <div class="_category">
+                <a href="/HTML/발주확인.html" class="category-link">발주확인</a> <br>
+                <a href="/HTML/생산계획.html" class="category-link">생산계획</a> <br>
+                <a href="/HTML/작업지시서(관리자용).html" class="category-link">작업지시서 작성</a> <br>
+                <a href="/HTML/작업지시서(작업자용).html" class="category-link">작업지시서 확인</a> <br>
+            </div>
+        </div>
+
+        <div class="category-item">
+            <a href="/HTML/재고현황.html" class="category-link">재고관리</a>
+            <div class="_category">
+                <a href="/HTML/재고현황.html" class="category-link">재고현황</a>
+            </div>
+        </div>
+
+        <div class="category-item">
+            <a href="/HTML/생산현황.html" class="category-link">공정관리</a>
+            <div class="_category">
+                <a href="/HTML/생산현황.html" class="category-link">생산현황</a>
+            </div>
+        </div>
+
+        <div class="category-item">
+            <a href="/HTML/불량률파악보고서.html" class="category-link">품질관리</a>
+            <div class="_category">
+                <a href="/HTML/불량률파악보고서.html" class="category-link">불량률파악보고서</a><br>
+            </div>
+        </div>
+
+        <div class="category-item">
+            <a href="/HTML/실적마감.html" class="category-link">실적 및 출하</a>
+            <div class="_category">
+                <a href="/HTML/실적마감.html" class="category-link">실적마감</a><br>
+                <a href="/HTML/출하확인.html" class="category-link">출하확인</a><br>
+            </div>
+        </div>
+
+        <div class="category-item">
+            <a href="/HTML/마이페이지.html"><img class="mypage-icon" src="/image/mypage.png"></a>
+
+            <div class="_category">
+                <a href="/HTML/마이페이지.html" class="category-link ">마이페이지</a> <br>
+                <a href="/HTML/계정관리.html" class="category-link">계정관리</a><br>
+                <a href="/HTML/사내게시판.html " class="category-link">사내게시판</a><br>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- 사이드바 -->
+    <div class="sidebar">
+        <ul id="sidebar-content">
+            <li><a href="/HTML/품목코드조회.html" class="category-link title ">품목 코드 조회</a></li>
+            <li><a href="/HTML/BOM.html" class="category-link">BOM(레시피관리)</a></li>
+            <li><a href="/HTML/거래처관리.html" class="category-link">거래처 관리</a></li>
+            <li><a href="/HTML/에러코드.html" class="category-link">에러코드</a><br></li>
+        </ul>
+    </div>
+
+    <!-- 내용페이지  -->
+    <div class="content">
+            <h1>품목코드 표</h1>
+            
+            <!-- 검색, 추가 div -->
+            <div class="srTop">
+                <!-- <div></div> -->
+                <!-- 검색 div -->
+                <div class="sr_search">
+                    <input type="text" id="search-input" placeholder="검색어 입력">
+            <button id="search-button">검색</button>
+            <button id="reset-button">초기화</button>
+                </div>
+            
+                <div class="srPlus">
+                        <img class="plus addBtn" src="/image/plus.png" title="추가">
+                </div>
+            </div>
+            
+            <br>
+            
+            <!-- 품목코드표 테이블 -->
+            <table id="table" class="srTable " border="solid black 1px;">
+                <tr>
+                    <th class="srTh">품목코드</th>
+                    <th class="srTh">품목명</th>
+                    <th class="srTh">이미지</th>
+                    <th class="srTh">수정</th>
+                    <th class="srTh">삭제</th>
+                    <th class="srTh">비고</th>
+                </tr>
+                <tr>
+                    <td>M001</td>
+                    <td>밀가루</td>
+                    <td><img class="ingre" src="/image/flour.jpg">
+                    </td>
+                    <!-- 수정버튼 -->
+                    <td><img class="pen editButton" src="/image/edit.png" title="수정/저장"></td>
+                    <!-- 삭제버튼 -->
+                    <td><img class="bin delButton" src="/image/delete.png" title="삭제"></td>
+                </tr>
+                <tr>
+                    <td>M002</td>
+                    <td>물</td>
+                    <td><img class="ingre" src="/image/water.jpg">
+                    </td>
+                    <td><img class="pen editButton" src="/image/edit.png" title="수정/저장"></td>
+                    <td><img class="bin delButton" src="/image/delete.png" title="삭제"></td>
+                </tr>
+                <tr>
+                    <td>M003</td>
+                    <td>소금</td>
+                    <td><img class="ingre" src="/image/salt.webp">
+                    </td>
+                    <td><img class="pen editButton" src="/image/edit.png" title="수정/저장"></td>
+                    <td><img class="bin delButton" src="/image/delete.png" title="삭제"></td>
+                </tr>
+                <tr>
+                    <td>M004</td>
+                    <td>다진 돼지고기</td>
+                    <td><img class="ingre" src="/image/mince.jfif">
+                    </td>
+                    <td><img class="pen editButton" src="/image/edit.png" title="수정/저장"></td>
+                    <td><img class="bin delButton" src="/image/delete.png" title="삭제"></td>
+                </tr>
+                <tr>
+                    <td>M005</td>
+                    <td>다진 양파</td>
+                    <td><img class="ingre" src="/image/onion.jpg">
+                    </td>
+                    <td><img class="pen editButton" src="/image/edit.png" title="수정/저장"></td>
+                    <td><img class="bin delButton" src="/image/delete.png" title="삭제"></td>
+                </tr>
+
+                <tr>
+                    <td>M006</td>
+                    <td>대파</td>
+                    <td><img class="ingre" src="/image/greenonion.jpg">
+                    </td>
+                    <td><img class="pen editButton" src="/image/edit.png" title="수정/저장"></td>
+                    <td><img class="bin delButton" src="/image/delete.png" title="삭제"></td>
+                </tr>
+                <tr>
+                    <td>M007</td>
+                    <td>간장</td>
+                    <td><img class="ingre" src="/image/soysauce.png">
+                    </td>
+                    <td><img class="pen editButton" src="/image/edit.png" title="수정/저장"></td>
+                    <td><img class="bin delButton" src="/image/delete.png" title="삭제"></td>
+                </tr>
+                <tr>
+                    <td>M008</td>
+                    <td>참기름</td>
+                    <td><img class="ingre" src="/image/sesameoil.jpg"></td>
+                    <td><img class="pen editButton" src="/image/edit.png" title="수정/저장"></td>
+                    <td><img class="bin delButton" src="/image/delete.png" title="삭제"></td>
+                </tr>
+                <tr>
+                    <td>M009</td>
+                    <td>후추</td>
+                    <td><img class="ingre" src="/image/pepper.jpg">
+                    </td>
+                    <td><img class="pen editButton" src="/image/edit.png" title="수정/저장"></td>
+                    <td><img class="bin delButton" src="/image/delete.png" title="삭제"></td>
+                </tr>
+                <tr>
+                    <td>M010</td>
+                    <td>마늘</td>
+                    <td><img class="ingre" src="/image/garlic.jpg">
+                    </td>
+                    <td><img class="pen editButton" src="/image/edit.png" title="수정/저장"></td>
+                    <td><img class="bin delButton" src="/image/delete.png" title="삭제"></td>
+                </tr>
+                <tr>
+                    <td>M015</td>
+                    <td>김치</td>
+                    <td><img class="ingre" src="/image/kimchi.webp">
+                    </td>
+                    <td><img class="pen editButton" src="/image/edit.png" title="수정/저장"></td>
+                    <td><img class="bin delButton" src="/image/delete.png" title="삭제"></td>
+                </tr>
+            </table>
+
+            <div style="display: none;">
+                <form id="srForm">
+                    <input type="text" class="code" placeholder="품목코드">
+                    <input type="text" class="name" placeholder="품목명">
+                    <input type="text" class="image" placeholder="이미지">
+                </form>
+            </div>
+
+</div>
+    <script src="/js/품목코드조회.js">
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,192 @@
+blue {
+    color: blue;
+}
+
+.mho:hover {
+    padding: 5px 5px;
+    border-radius: 3px;
+    text-decoration: underline;
+}
+
+.mho {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+}
+
+.green {
+    color: lightgreen;
+    font-weight: 700;
+}
+
+.red {
+    color: red;
+    font-weight: 700;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    width: 800px;
+    height: 50px;
+    line-height: 50px;
+}
+
+.flex>div {
+    flex: 1;
+    text-align: center;
+    line-height: 50px;
+}
+
+.round {
+    border: 1px solid black;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.over {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.mfont div {
+    font-size: 15px;
+}
+
+.mfont {
+    /* border: 1px solid red; */
+    margin-left: 370px;
+}
+
+.m_llist{
+    display: inline-block;
+    /* border: 1px solid red; */
+    margin-left: 370px;
+}
+
+.mnum {
+    display: inline-block;
+    position: absolute;
+    left: 360px;
+    margin-left: 430px;
+}
+
+.mbox {
+    border: 1px solid #e6e6e6;
+    background-color: #e6e6e6;
+    cursor: pointer;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.mbox.active {
+    font-weight: bold;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.mbox:active {
+    font-weight: 700;
+    font-size: 1em;
+}
+
+.mho:link {
+    color: initial;
+}
+
+.mho:visited {
+    color: initial;
+}
+
+.sr_search {
+    width: 1000px;
+    width: 50%;
+    margin: auto;
+}
+
+.sr_search_text {
+    border: 1px solid black;
+    border-radius: 30px;
+    width: 400px;
+    height: 40px;
+    position: relative;
+    top: 65px;
+    right: 100px;
+}
+
+.sr_searchbar {
+    border: 1px solid red;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 74px;
+    right: 80px;
+}
+
+.sr_button {
+    background-color: hsl(220, 91%, 74%);
+    border-radius: 30px;
+    font-size: 15px;
+    width: 80px;
+    height: 40px;
+}
+
+
+/* 검색창을 상단 중앙에 고정 */
+.search-container {
+    position: fixed; /* 위치를 고정 */
+    top: 800px; /* 페이지 상단에서 20px 떨어진 위치 */
+    left: 48%; /* 페이지 중앙에서 왼쪽으로 이동 */
+    transform: translateX(-50%); /* 페이지 중앙에 정확히 위치하도록 조정 */
+    display: flex; /* 검색창과 버튼을 수평으로 배치 */
+    align-items: center; /* 세로 중앙 정렬 */
+    background-color: white; /* 배경색 설정 */
+    padding: 10px; /* 여백 설정 */
+    border-radius: 5px; /* 모서리 둥글게 설정 */
+    z-index: 1000; /* 다른 요소들 위에 표시되도록 설정 */
+    margin-left: 180px;
+}
+
+#search-input {
+    width: 300px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+#search-button, #reset-button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #e6e6e6;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#search-button:hover {
+    background-color: #81b3e9;
+}
+
+#reset-button:hover{
+    background-color: #f38080;
+}
+
+/* 페이지네이션 버튼(mnum)의 위치를 조정 */
+.mnum {
+    display: inline-block;
+    position: fixed; /* 위치를 고정 */
+    left: 600px;
+    top: 730px; /* 검색창 아래쪽에서 80px 떨어진 위치 */
+    background-color: white; /* 배경색 설정 */
+    padding: 10px; /* 여백 설정 */
+    border-radius: 5px; /* 모서리 둥글게 설정 */
+    z-index: 1000; /* 다른 요소들 위에 표시되도록 설정 */
+}
+
+

@@ -1,0 +1,83 @@
+﻿blue {
+    color: blue;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    width: 95%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 13px;
+}
+
+.flex>div {
+    flex: 1;
+    text-align: center;
+    line-height: 50px;
+}
+
+.round {
+    border: 1px solid black;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.btnStyle {
+    width: 80px;
+    padding: 13px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    background-color: #e6e6e6;
+    cursor: pointer;
+}
+
+/* 등록버튼에 마우스가 올라가면 색이 바뀜 */
+.mbtn11:hover {
+    background-color: #81b3e9;
+}
+
+.delete-btn:hover {
+    background-color: #f38080;
+}
+
+.mfont div {
+    font-size: 15px;
+}
+
+input[type="text"] {
+    width: 100px;
+}
+
+.srEl {
+    /* width:150px; */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /* 자동 줄바꿈을 방지 */
+    overflow: hidden;
+}
+
+.content{
+    overflow:auto;
+    margin-left:100px;
+    text-align: center;
+    width: 65%;
+    height:100%;
+}
+
+
+.flex.round {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Center align items vertically */
+    padding: 10px;
+    width: 95%; /* Adjust width as needed */
+    height: auto;
+    line-height: 50px;
+    font-size: 13px;
+    border: 1px solid black;
+    border-radius: 15px;
+    margin-bottom: 10px; /* Reduced margin for better spacing */
+}

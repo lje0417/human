@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandoo</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/css/BOM.css">
+</head>
+
+<body>
+
+    <!-- 메인 -->
+    <div class="category">
+
+        <!-- 메뉴 아이콘 -->
+        <div class="menu-icon">
+            <img class="menu-icon" src="/image/menu.png">
+        </div>
+
+        <!-- 로고 아이콘 -->
+        <div class="category-item">
+            <a href="/indexemp.html" class="category-link"><img class="logo-icon" src="/image/logo.png"></a>
+        </div>
+        <!-- 카테고리 -->
+        <div class="category-item">
+            <a href="/HTML/BOMemp.html" class="category-link title">BOM</a>
+        </div>
+
+        <div class="category-item">
+            <a href="/HTML/작업지시서(작업자용)emp.html" class="category-link">생산계획</a>
+        </div>
+
+        <div class="category-item">
+            <a href="/HTML/재고현황emp.html" class="category-link">재고관리</a>
+        </div>
+
+        <div class="category-item">
+            <a href="/HTML/생산현황emp.html" class="category-link">공정관리</a>
+        </div>
+
+        <div class="category-item">
+            <a href="/HTML/불량률파악보고서emp.html" class="category-link">불량률파악보고서</a>
+        </div>
+        <div class="category-item">
+            <a href="/HTML/마이페이지emp.html"><img class="mypage-icon" src="/image/mypage.png"></a>
+        </div>
+
+    </div>
+    <!-- 사이드바 -->
+    <div class="sidebar">
+        <ul id="sidebar-content">
+            <li><a href="/HTML/BOMemp.html" class="category-link title">BOM(레시피관리)</a></li>
+        </ul>
+    </div>
+
+    <!-- 내용페이지  -->
+    <div class="content">
+        <div class="srBack">
+            <h1>레시피 관리</h1>
+
+            <div class="srTop">
+                <!-- 제품 레시피 선택  -->
+                <form>
+                    <select id="recipeSelect">
+                        <option value="kimchi">김치만두 / A00001</option>
+                        <option value="meat">고기만두 / A00002</option>
+                    </select>
+                </form>
+            </div>
+
+            <br>
+            <!-- 김치만두 표-->
+            <table id="table" class="sr_bom kimchi" border="solid black 1px;">
+                <tr>
+                    <th class="srTh">품목코드</th>
+                    <th class="srTh">품목명</th>
+                    <th class="srTh">수량</th>
+                    <th class="srTh">단위</th>
+                    <th class="srTh">비고</th>
+                </tr>
+                <tr>
+                    <td>M001</td>
+                    <td>밀가루</td>
+                    <td>500</td>
+                    <td>g</td>
+                    <td>만두피 재료</td>
+                </tr>
+                <tr>
+                    <td>M002</td>
+                    <td>물</td>
+                    <td>200</td>
+                    <td>ml</td>
+                    <td>반죽용</td>
+                </tr>
+                <tr>
+                    <td>M003</td>
+                    <td>소금</td>
+                    <td>5</td>
+                    <td>g</td>
+                    <td>반죽 간 및 농도 조절</td>
+                </tr>
+                <tr>
+                    <td>M004</td>
+                    <td>다진 돼지고기</td>
+                    <td>300</td>
+                    <td>g</td>
+                    <td>만두 속 재료</td>
+                </tr>
+                <tr>
+                    <td>M005</td>
+                    <td>다진 양파</td>
+                    <td>100</td>
+                    <td>g</td>
+                    <td>만두 속 재료</td>
+                </tr>
+                <tr>
+                    <td>M015</td>
+                    <td>김치</td>
+                    <td>100</td>
+                    <td>g</td>
+                    <td>만두 속 재료</td>
+                </tr>
+                <tr>
+                    <td>M006</td>
+                    <td>대파</td>
+                    <td>30</td>
+                    <td>g</td>
+                    <td>만두 속 재료</td>
+                </tr>
+                <tr>
+                    <td>M007</td>
+                    <td>간장</td>
+                    <td>15</td>
+                    <td>ml</td>
+                    <td>만두 속 양념</td>
+                </tr>
+                <tr>
+                    <td>M008</td>
+                    <td>참기름</td>
+                    <td>10</td>
+                    <td>ml</td>
+                    <td>만두 속 양념</td>
+                </tr>
+                <tr>
+                    <td>M009</td>
+                    <td>후추</td>
+                    <td>2</td>
+                    <td>g</td>
+                    <td>만두 속 양념</td>
+                </tr>
+                <tr>
+                    <td>M010</td>
+                    <td>마늘</td>
+                    <td>10</td>
+                    <td>g</td>
+                    <td>만두 속 양념</td>
+                </tr>
+
+            </table>
+
+            <!-- 고기만두 표-->
+            <table id="table" class="sr_bom meat" border="solid black 1px;">
+                <tr>
+                    <th class="srTh">품목코드</th>
+                    <th class="srTh">품목명</th>
+                    <th class="srTh">수량</th>
+                    <th class="srTh">단위</th>
+                    <th class="srTh">비고</th>
+                </tr>
+                <tr>
+                    <td>M001</td>
+                    <td>밀가루</td>
+                    <td>500</td>
+                    <td>g</td>
+                    <td>만두피 재료</td>
+                </tr>
+                <tr>
+                    <td>M002</td>
+                    <td>물</td>
+                    <td>200</td>
+                    <td>ml</td>
+                    <td>반죽용</td>
+                </tr>
+                <tr>
+                    <td>M003</td>
+                    <td>소금</td>
+                    <td>5</td>
+                    <td>g</td>
+                    <td>반죽 간 및 농도 조절</td>
+                </tr>
+                <tr>
+                    <td>M004</td>
+                    <td>다진 돼지고기</td>
+                    <td>300</td>
+                    <td>g</td>
+                    <td>만두 속 재료</td>
+                </tr>
+                <tr>
+                    <td>M005</td>
+                    <td>다진 양파</td>
+                    <td>100</td>
+                    <td>g</td>
+                    <td>만두 속 재료</td>
+                </tr>
+                <tr>
+                    <td>M006</td>
+                    <td>대파</td>
+                    <td>30</td>
+                    <td>g</td>
+                    <td>만두 속 재료</td>
+                </tr>
+                <tr>
+                    <td>M007</td>
+                    <td>간장</td>
+                    <td>15</td>
+                    <td>ml</td>
+                    <td>만두 속 양념</td>
+                </tr>
+                <tr>
+                    <td>M008</td>
+                    <td>참기름</td>
+                    <td>10</td>
+                    <td>ml</td>
+                    <td>만두 속 양념</td>
+                </tr>
+                <tr>
+                    <td>M009</td>
+                    <td>후추</td>
+                    <td>2</td>
+                    <td>g</td>
+                    <td>만두 속 양념</td>
+                </tr>
+                <tr>
+                    <td>M010</td>
+                    <td>마늘</td>
+                    <td>10</td>
+                    <td>g</td>
+                    <td>만두 속 양념</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+    <script src="/js/BOMemp.js"></script>
+</body>
+
+</html>

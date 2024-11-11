@@ -1,0 +1,35 @@
+﻿.quality-content {
+    /* overflow: auto; */
+    /* border: 1px solid black; */
+    height: 843px;
+    width: 1692px;
+    position: absolute;
+    left: 230px;
+    top: 260px;
+}
+.quality-table-container {
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+} 
+
+.qualitytest {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.quality-table {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+}
+
+.quality-table th, .quality-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.qualwhat {
+    background-color: #f2f2f2;
+}

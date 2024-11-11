@@ -1,0 +1,219 @@
+.content{
+    
+margin-left: 250px;
+}
+blue{
+    color: blue;
+}
+
+.mho:hover {
+    background-color: lightblue;
+    border: 1px solid lightblue;    
+    padding: 5px 5px;
+    border-radius: 3px;
+}
+
+.green{
+    color: lightgreen;
+    font-weight: 700;
+}
+
+.red{
+    color: red;
+    font-weight: 700;
+}
+
+.black{
+    color: black;
+    font-weight: 700;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-top: 10px;
+    width: 800px;
+    height: 50px;
+    line-height: 50px;
+}
+
+.mfont div{
+    font-size: 14px;
+}
+
+.flex>div {
+    flex: 1;
+    text-align: center;
+    line-height: 50px;
+}
+
+.round {
+    border: 1px solid black;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.mnum{
+    display: inline-block;
+    position: absolute;
+    left: 360px;
+}
+
+.mbox{
+    margin: 10px;
+}
+
+.sr_search{
+    width: 1000px;
+    /* text-align: center; */
+    width:50%;
+    margin:auto;
+}
+
+.sr_search_text{
+    border: 1px solid black;
+    border-radius: 30px;
+    width: 400px;
+    height: 40px;
+    position: relative;
+    top: 40px;
+    right: 100px;
+}
+
+.sr_searchbar{
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 45px;
+    right: 80px;
+}
+
+.sr_button{
+    background-color: hsl(220, 91%, 74%);
+    border-radius:30px;
+    font-size:15px;
+    width: 80px;
+    height: 40px;
+}
+
+.mho:link {
+    color: initial; /* 기본 링크 색상 */
+    text-decoration: none; /* 기본 밑줄 제거 */
+}
+.mho:visited {
+    color: initial; /* 방문한 링크 색상 */
+    text-decoration: none; /* 방문한 링크 밑줄 제거 */
+}
+
+
+
+.search-container {
+    position: fixed;
+    top: 680px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+
+/* 검색창 스타일 */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#search-input {
+    width: 70%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#search-button,
+#cancel-button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    color: black;
+    cursor: pointer;
+    margin-left: 5px;
+    width: 100px;
+
+    background-color: #e6e6e6;
+}
+
+
+
+
+/* 팝업창 스타일 */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 400px;
+    position: relative;
+}
+
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#popup h2 {
+    margin-top: 0;
+}
+
+/* 등록, 수정, 삭제 버튼 스타일 */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.action-buttons button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    margin: 0 5px;
+    color: white;
+    cursor: pointer;
+}
+
+#add-button , #edit-button ,#delete-button{
+    background-color: #e6e6e6;
+    color: black;
+}
+
+
+#add-button:hover ,#edit-button:hover,#delete-button:hover {
+    background-color: #e6e6e6;
+}
+
+.warp{
+    border: 1px solid red;
+    margin-left: 50px;
+}

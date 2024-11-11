@@ -1,0 +1,65 @@
+﻿/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    width: 65%;
+    margin-left: 100px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+button {
+    padding: 10px;
+    background-color: #0085FF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+}
+
+button:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+
+#posts-table th:nth-child(5),
+#posts-table td:nth-child(5),
+#posts-table th:nth-child(1),
+#posts-table td:nth-child(1),
+#posts-table th:nth-child(2),
+#posts-table td:nth-child(2) {
+    width: 100px;
+}
+
+#posts-table th:nth-child(4),
+#posts-table td:nth-child(4) {
+    width: 200px;
+}

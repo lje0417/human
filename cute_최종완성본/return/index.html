@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandoo</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+</head>
+
+<body>
+
+    <!-- 메인 -->
+    <div class="category">
+
+        <!-- 메뉴 아이콘 -->
+        <div class="menu-icon">
+            <img class="menu-icon" src="/image/menu.png">
+        </div>
+
+        <!-- 로고 아이콘 -->
+        <div class="category-item">
+            <a href="#" class="category-link" data-url="main.html"><img class="logo-icon" src="/image/logo.png"></a>
+        </div>
+
+        <!-- 카테고리 -->
+        <div class="category-item">
+            <a href="#" class="category-link title" data-url="HTML/품목코드조회.html">기준관리</a>
+            <div class="_category">
+                <a href="#" class="category-link" data-url="HTML/품목코드조회.html">품목 코드 조회</a><br>
+                <a href="#" class="category-link" data-url="HTML/BOM.html">BOM(레시피관리)</a><br>
+                <a href="#" class="category-link" data-url="HTML/거래처관리.html">거래처 관리</a><br>
+            </div>
+        </div>
+        <div class="category-item">
+            <a href="#" class="category-link title" data-url="HTML/발주확인.html">생산계획</a>
+            <div class="_category">
+                <a href="#" class="category-link" data-url="HTML/발주확인.html">발주확인</a> <br>
+                <a href="#" class="category-link" data-url="HTML/작업지시서(관리자용).html">작업지시서 작성</a> <br>
+                <a href="#" class="category-link" data-url="HTML/작업지시서(작업자용).html">작업지시서 확인</a> <br>
+                <a href="#" class="category-link" data-url="HTML/작업지시서조회.html">작업지시서 조회</a> <br>
+            </div>
+        </div>
+
+        <div class="category-item">
+            <a href="#" class="category-link title" data-url="HTML/재고현황.html" data-script="JS/재고현황.js">재고관리</a>
+            <div class="_category">
+                <a href="#" class="category-link" data-url="HTML/재고현황.html">재고현황</a>
+            </div>
+        </div>
+
+        <div class="category-item">
+            <a href="#" class="category-link title" data-url="HTML/생산현황.html">공정관리</a>
+            <div class="_category">
+                <a href="#" class="category-link" data-url="HTML/생산현황.html">생산현황</a>
+            </div>
+        </div>
+
+        <div class="category-item">
+            <a href="#" class="category-link title" data-url="HTML/품질관리.html">품질관리</a>
+            <div class="_category">
+                <a href="#" class="category-link" data-url="HTML/품질관리.html">품질관리</a><br>
+                <a href="#" class="category-link" data-url="HTML/에러코드.html">에러코드</a><br>
+            </div>
+        </div>
+
+        <div class="category-item">
+            <a href="#" class="category-link title" data-url="HTML/실적마감.html">실적 및 출하</a>
+            <div class="_category">
+                <a href="#" class="category-link" data-url="HTML/실적마감.html" data-script="JS/실적마감.js">실적마감</a><br>
+                <a href="#" class="category-link" data-url="HTML/출하확인.html">출하확인</a><br>
+            </div>
+        </div>
+        
+
+        <div class="category-item">
+            <a href="#" class="category-link" data-url="마이페이지">
+                <img class="mypage-icon" src="/image/mypage.png">
+            </a>
+
+            <div class="_category">
+                <a href="/마이페이지">마이페이지</a> <br>
+                <a href="/계정관리">계정관리</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- 사이드바 -->
+    <div class="sidebar">
+        <ul id="sidebar-content">
+        </ul>
+    </div>
+
+    <!-- 내용페이지  -->
+    <div class="content">
+        <div id="content-display">정보가 없습니다.❌</div>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+
+</html>

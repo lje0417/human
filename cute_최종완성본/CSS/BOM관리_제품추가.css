@@ -1,0 +1,52 @@
+﻿     /* 전체배경 */
+     .content {
+         width: 65%;
+         overflow: auto;
+         margin-left: 100px;
+         text-align: center;
+     }
+
+     /* 뒤로가기, 저장 버튼 */
+     .sr_mandoo {
+         display: flex;
+         justify-content: space-between;
+         width: 100%;
+     }
+
+     /* save 플러스 이미지로 변경 */
+     .imgstyle {
+         width: 30px;
+         cursor: pointer;
+     }
+
+     /* 테이블 스타일 */
+     .infoTable {
+         border-collapse: collapse;
+         text-align: center;
+     }
+
+     /* 원재료 정보 작성칸 가로길이 설정 */
+     .ingreInfo {
+         width: 100%;
+     }
+
+     /* 테이블헤드 색상, 크기 설정 */
+     .srTh {
+         background-color: #e6e6e6;
+         height: 50px;
+     }
+
+     /* 플러스이미지버튼 오른쪽으로 배치 */
+     .toRight{
+        display: flex;
+        justify-content: space-between;
+        width:100%;
+     }
+
+     /* 플러스 이미지버튼 */
+     .ingrebutt {
+         margin-top: 30px;
+         margin-bottom: 5px;
+         padding: 5px;
+         cursor: pointer;
+     }

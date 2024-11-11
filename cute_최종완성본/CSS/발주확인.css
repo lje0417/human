@@ -1,0 +1,126 @@
+.allrigth{
+    border: 1px solid red;
+}
+
+blue{
+    color: blue;
+}
+
+.mcate{
+   padding: 5px 20px;
+   font-weight: 700;
+   border-radius: 5px;
+}
+
+.goodjob{
+    margin-top: 20px;
+    margin-left: 370px;
+}
+
+.mcontain{
+    display: inline-block;
+    border: 1px solid red;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-top: 10px;
+    width: 800px;
+    height: 50px;
+    line-height: 50px;
+    margin-left: 370px;
+}
+
+.flex>div {
+    flex: 1;
+    text-align: center;
+    line-height: 50px;
+}
+
+.round {
+    border: 1px solid black;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    margin-left: 360px;
+}
+
+.mbtn1 {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #e6e6e6;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 410px;
+}
+
+.mbtn1:hover{
+    background-color: #81b3e9;
+}
+
+.mbtn2 {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #e6e6e6;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.mbtn2:hover{
+    background-color: #f38080;
+}
+
+mleft {
+    position: absolute;
+    left: 615px;
+}
+
+.mnum{
+    display: inline-block;
+    position: absolute;
+    left: 360px;
+}
+
+.mbox{
+    margin: 10px;
+}
+
+.sae{
+    display: none;
+}
+
+.gun{
+    display: none;
+}
+
+.m_pagination{
+    display: inline-block;
+    margin-left: 665px;
+}
+
+.m_pagination button {
+    border: 1px solid #e6e6e6;
+    background-color: #e6e6e6;
+    cursor: pointer; /* 버튼에 커서 모양 추가 */
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.m_pagination button.active {
+    font-weight: bold;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.2em; /* 원하는 크기로 조정 */
+}
+
+/* 버튼을 클릭했을 때의 스타일 */
+.m_pagination button:active {
+    font-weight: 700;
+    font-size: 1em; /* 원하는 크기로 조정 */
+}

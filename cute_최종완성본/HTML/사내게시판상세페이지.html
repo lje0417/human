@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandoo</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/CSS/사내게시판상세페이지.css">
+</head>
+
+<body>
+    <!-- 메인 -->
+    <div class="category">
+
+        <!-- 메뉴 아이콘 -->
+        <div class="menu-icon">
+            <img class="menu-icon" src="/image/menu.png">
+        </div>
+
+        <!-- 로고 아이콘 -->
+        <div class="category-item">
+            <a href="/index.html" class="category-link"><img class="logo-icon" src="/image/logo.png"></a>
+        </div>
+
+        <!-- 카테고리 -->
+        <div class="category-item">
+            <a href="/HTML/품목코드조회.html" class="category-link">기준관리</a>
+            <div class="_category">
+                <a href="/HTML/품목코드조회.html" class="category-link">품목 코드 조회</a><br>
+                <a href="/HTML/BOM.html" class="category-link">BOM(레시피관리)</a><br>
+                <a href="/HTML/거래처관리.html" class="category-link">거래처 관리</a><br>
+                <a href="/HTML/에러코드.html" class="category-link">에러코드</a><br>
+            </div>
+        </div>
+        <div class="category-item">
+            <a href="/HTML/발주확인.html" class="category-link">생산계획</a>
+            <div class="_category">
+                <a href="/HTML/발주확인.html" class="category-link">발주확인</a> <br>
+                <a href="/HTML/생산계획.html" class="category-link">생산계획</a> <br>
+                <a href="/HTML/작업지시서(관리자용).html" class="category-link">작업지시서 작성</a> <br>
+                <a href="/HTML/작업지시서(작업자용).html" class="category-link">작업지시서 확인</a> <br>
+            </div>
+        </div>
+
+        <div class="category-item">
+            <a href="/HTML/재고현황.html" class="category-link">재고관리</a>
+            <div class="_category">
+                <a href="/HTML/재고현황.html" class="category-link">재고현황</a>
+            </div>
+        </div>
+
+        <div class="category-item">
+            <a href="/HTML/생산현황.html" class="category-link">공정관리</a>
+            <div class="_category">
+                <a href="/HTML/생산현황.html" class="category-link">생산현황</a>
+            </div>
+        </div>
+
+        <div class="category-item">
+            <a href="/HTML/불량률파악보고서.html" class="category-link">품질관리</a>
+            <div class="_category">
+                <a href="/HTML/불량률파악보고서.html" class="category-link">불량률파악보고서</a><br>
+            </div>
+        </div>
+
+        <div class="category-item">
+            <a href="/HTML/실적마감.html" class="category-link">실적 및 출하</a>
+            <div class="_category">
+                <a href="/HTML/실적마감.html" class="category-link">실적마감</a><br>
+                <a href="/HTML/출하확인.html" class="category-link">출하확인</a><br>
+            </div>
+        </div>
+
+        <div class="category-item">
+            <a href="/HTML/마이페이지.html"><img class="mypage-icon" src="/image/mypage.png"></a>
+
+            <div class="_category">
+                <a href="/HTML/마이페이지.html" class="category-link ">마이페이지</a> <br>
+                <a href="/HTML/계정관리.html" class="category-link">계정관리</a><br>
+                <a href="/HTML/사내게시판.html " class="category-link title">사내게시판</a><br>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- 사이드바 -->
+    <div class="sidebar">
+        <ul id="sidebar-content">
+            <li><a href="/HTML/마이페이지.html">마이페이지</a></li>
+            <li><a href="/HTML/계정관리.html">계정관리</a></li>
+            <li><a href="/HTML/사내게시판.html" class=" title ">사내게시판</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div class="post-details">
+            <h2 id="post-title"></h2>
+            <table>
+                <tr class="menu">
+                    <td><strong>카테고리</strong></td>
+                    <td><strong>작성자</strong></td>
+                    <td><strong>날짜</strong></td>
+                </tr>
+                <tr>
+                    <td><span id="post-category"></span></td>
+                    <td><span id="post-author"></span></td>
+                    <td><span id="post-date"></span></td>
+                </tr>
+            </table>
+
+            <div id="post-content"></div>
+            <button id="back-button">목록으로 돌아가기</button>
+        </div>
+
+
+        <div class="comment-section">
+            <h3>댓글</h3>
+            <form id="comment-form">
+                <div id="comment-id"></div>
+                <textarea id="comment-content" placeholder="댓글을 입력하세요." required></textarea>
+                <button type="submit">댓글 추가</button>
+            </form>
+            <div id="comment-list"></div>
+        </div>
+    </div>
+
+    <script src="/JS/사내게시판상세페이지.js">
+    </script>
+</body>
+
+</html>

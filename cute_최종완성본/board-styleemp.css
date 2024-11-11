@@ -1,0 +1,256 @@
+﻿
+
+.content {
+    max-width: 650px; /* 최대 너비를 줄임 */
+    margin: 20px 800px; /* 자동 마진으로 중앙 정렬 */
+    padding: 15px; /* 내부 패딩을 줄임 */
+    border: 1px solid #ddd; /* 테두리 추가 */
+    border-radius: 8px; /* 둥근 모서리 */
+    background-color: #f9f9f9; /* 배경색 추가 */
+}
+
+
+
+h1 {
+    font-size: 24px; /* 제목 크기 조정 */
+    margin-bottom: 20px; /* 제목과 다음 요소 간 마진 조정 */
+    text-align: center; /* 중앙 정렬 */
+}
+
+
+#posts-table {
+    width: 100%; /* 테이블 너비 100% */
+    border-collapse: collapse; /* 경계선 겹치기 제거 */
+    margin-top: 15px; /* 상단 마진 조정 */
+}
+
+th, td {
+    padding: 8px; /* 셀 패딩 조정 */
+    border: 1px solid #ddd; /* 셀 경계선 */
+    text-align: center; /* 중앙 정렬 */
+}
+
+th {
+    background-color: #f2f2f2; /* 헤더 배경색 */
+}
+
+.calendar-container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.calendar-header h2 {
+    margin: 0;
+}
+
+.calendar {
+    display: flex;
+    flex-direction: column;
+}
+
+.day-names {
+    display: flex;
+    background-color: #e0e0e0;
+    font-weight: bold;
+}
+
+.day-names div {
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.days {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.days div {
+    flex: 1 0 14.28%; /* 7일 기준 */
+    height: 80px; /* 각 날짜 셀의 높이 */
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 80px; /* 수직 중앙 정렬 */
+}
+
+
+.board {
+    top: 620px;
+    left: 410px;
+}
+
+/* 게시글 제목 스타일 */
+#posts-table td.board-title {
+    max-width: 220px;
+    overflow: hidden; /* 넘치는 내용 숨김 */
+    white-space: nowrap; /* 한 줄로 유지 */
+    text-overflow: ellipsis; /* 넘치는 텍스트에 ... 추가 */
+    display: block; /* 블록 요소로 설정 */
+}
+
+/* 테이블 셀 스타일 */
+#posts-table th, #posts-table td {
+    padding: 10px; /* 셀 패딩 */
+    text-align: center; /* 텍스트 정렬 */
+}
+
+#posts-table td:nth-child(3) {
+    width: 220px;
+}
+
+.content2 {
+    display: block;
+    width: 1100px;
+    margin-top: 50px;
+    margin-left: 20px;
+    padding-left:50px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.chart-container {
+    display: inline-block;
+}
+
+
+.container {
+    width: 200px;
+    height: 700px;
+    background-color: #E6E6E6;
+    text-align: center;
+    line-height: 20px;
+}
+
+
+#doughnut-chart {
+    width: 350px !important;
+    height: 350px !important;
+}
+
+#line-chart {
+    margin-left: 80px;
+    width: 600px !important;
+    height: 400px !important;
+}
+
+
+.content3 {
+    left:1190px;
+    position: relative;
+    display: block;
+    bottom: 635px;
+}
+
+.calendar-container {
+    width: 250px;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    height: 370px; /* 캘린더 높이를 고정 */
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.day-names {
+    display: flex;
+    background-color: #f0f0f0;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.day-names div {
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
+}
+.days {
+    display: flex;
+    flex-wrap: wrap;
+    height: calc(100% - 100px); /* 헤더와 요일 이름을 제외한 나머지 높이 */
+    overflow: auto; /* 내용이 넘칠 경우 스크롤 가능 */
+}
+
+.days div {
+    flex: 1 0 14.28%; /* 7일 기준 */
+    height: calc((100% / 6) - 1px); /* 6주 기준으로 계산, 1px은 테두리 */
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 40px; /* 수직 중앙 정렬 */
+}
+
+
+.content4 {
+    width: 370px;
+    position: relative;
+    display: block;
+    bottom:1045px;
+    left: 1520px;
+}
+
+.memo-container, .memo-list {
+    margin: 10px 0; /* 위아래 여백 */
+    padding: 15px; /* 내부 패딩 추가 */
+    border: 1px solid #ccc; /* 경계선 */
+    border-radius: 5px; /* 모서리 둥글게 */
+    background-color: #fff; /* 배경색 */
+}
+
+.memo-container h2, .memo-list h2 {
+    margin-bottom: 10px; /* 제목 아래 여백 */
+}
+
+#memo-input {
+    width: calc(100% - 22px); /* 입력 필드가 전체 너비에 맞게 조정 */
+    margin-bottom: 10px; /* 아래 여백 */
+    padding: 10px; /* 내부 패딩 */
+    border: 1px solid #ccc; /* 테두리 */
+    border-radius: 4px; /* 모서리 둥글게 */
+}
+
+#add-memo {
+    padding: 10px 15px; /* 버튼 패딩 */
+    border: none; /* 테두리 제거 */
+    border-radius: 4px; /* 모서리 둥글게 */
+    background-color: #007bff; /* 버튼 배경색 */
+    color: white; /* 버튼 글자색 */
+    cursor: pointer; /* 마우스 포인터 변경 */
+}
+
+#add-memo:hover {
+    background-color: #0056b3; /* 버튼 호버 색상 */
+}
+
+#memo-output {
+    list-style-type: none; /* 리스트 스타일 제거 */
+    padding: 0; /* 패딩 제거 */
+}
+
+#memo-output li {
+    padding: 5px; /* 리스트 아이템 패딩 */
+    border-bottom: 1px solid #ddd; /* 아래 테두리 */
+}
+
+
+.progress {
+    display: block;
+    margin-top: 55px;
+}

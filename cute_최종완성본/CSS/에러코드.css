@@ -1,0 +1,113 @@
+
+.errortext {
+    font-size: 30px;
+    text-align: center;
+}
+
+/* 버튼 */
+.errorbtn {
+    /* font-size: 15px; */
+    text-align: right;
+}
+
+.errorfloat {
+    /* float: right; */
+    width: 100%;
+    text-align: right;
+    /* margin: 10px 0; */
+}
+
+th {
+    background-color: #e6e6e6;
+    height: 50px;
+}
+
+tr{
+    height: 50px;
+}
+
+.imgStyle{
+    width: 30px;
+    cursor: pointer;
+}
+
+/* 테이블 */
+.errortable {
+    border: solid #e6e6e6 1px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.errorexplain {
+    width: 500px;
+}
+
+.erroreditButton {
+    border: 0px;
+    background-color: #ffffff;
+}
+
+.errordelButton {
+    border: 0px;
+    background-color: #ffffff;
+}
+
+/* 전체 div */
+.jewrap {
+    width: 800px;
+    text-align: center;
+    padding-left: 50px;
+}
+
+/* 타이틀 */
+.title {
+    width: 578px;
+    text-align: center;
+
+    margin: 30px 0;
+}
+
+.text {
+    font-size: 30px;
+    text-align: center;
+}
+
+/* 버튼 */
+.btn {
+    /* font-size: 15px; */
+    text-align: right;
+}
+
+.jefloat {
+    /* float: right; */
+    width: 570px;
+    text-align: left;
+    /* margin: 10px 0; */
+}
+
+.explain {
+    width: 500px;
+}
+
+.delButton {
+    border: 0px;
+    background-color: #ffffff;
+}
+
+.editButton {
+    border: 0px;
+    background-color: #ffffff;
+}
+
+.content {
+    overflow: auto;
+    margin-left: 100px;
+    text-align: center;
+    width: 65%;
+    height: 80%;
+    padding-right:272px;
+}
+.saveButton{
+    background-color: white;
+    border: none;
+}

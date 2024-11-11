@@ -1,0 +1,28 @@
+/* 실적마감.css */
+
+.select {
+    position: absolute;
+    top: 20px; /* 상단에서의 위치 조정 */
+    left: 20px; /* 왼쪽에서의 위치 조정 */
+    z-index: 1; /* 셀렉트 박스가 차트 위에 있도록 설정 */
+}
+
+._select {
+    width: 120px;
+    height: 30px;
+    text-align: center;
+}
+
+.chart-container {
+    display: inline-block;
+    width: 45%; /* 차트 컨테이너의 너비를 48%로 설정하여 두 차트 사이의 간격을 조정 */
+    height: 400px; /* 차트의 높이를 400px로 고정 */
+    margin: 1%; /* 좌우 간격 조정 */
+    position: relative;
+    top: 150px; /* 상단에서의 위치 조정 */
+}
+
+.chart-container canvas {
+    width: 100% !important; /* canvas의 너비를 컨테이너에 맞추기 */
+    height: 100% !important; /* canvas의 높이를 컨테이너에 맞추기 */
+}

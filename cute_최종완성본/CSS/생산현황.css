@@ -1,0 +1,192 @@
+﻿.progress-content {
+    overflow: auto;
+    /* border: 1px solid black; */
+    height: 750px;
+    width: 95%;
+    position: absolute;
+    left: 230px;
+    top: 100px;
+}
+
+/* 전체 컨테이너 스타일 */
+.progress-home {
+    width: 1400px;
+    /* border: 1px solid red; */
+    margin: 0 auto;
+    /* 가운데 정렬 */
+    position: absolute;
+    padding-left: 135px;
+}
+
+/* 선택 박스 스타일 */
+.progress-mandoo {
+    width: 80%;
+    margin: 10px auto;
+    /* 가운데 정렬 */
+}
+
+.progress-pick {
+    padding: 5px 20px;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+/* 진행 바 컨테이너 스타일 */
+.progress-container {
+    height: 30px;
+    width: 80%;
+    background-color: #e0e0e0;
+    overflow: hidden;
+    position: relative;
+    margin: 20px auto;
+    /* 가운데 정렬 */
+}
+
+.progress-bar {
+    height: 100%;
+    width: 50%;
+    background-color: #76c7c0;
+    animation: progress 3s ease-in-out forwards;
+}
+
+/* 진행 상태 설명 스타일 */
+.progress-explain {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 10px auto;
+    position: relative;
+}
+
+.progress-explain span {
+    flex: 1;
+    text-align: center;
+}
+
+.progress-line-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.progress-line {
+    position: relative;
+    height: 100%;
+    width: 0;
+    border-left: 1px solid #000;
+}
+
+@keyframes progress {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 50%;
+    }
+}
+
+/* 버튼 스타일 */
+.pro-restart {
+    width: 25px;
+}
+
+/* 생산 수량 정보 스타일 */
+.procount {
+    margin: 10px 0;
+    position: relative;
+    left: 10%;
+}
+
+
+/* 진행 바 컨테이너 스타일 */
+.quality-container {
+    height: 30px;
+    width: 80%;
+    background-color: #e0e0e0;
+    overflow: hidden;
+    position: relative;
+    margin: 20px auto;
+    /* 가운데 정렬 */
+}
+
+.quality-bar {
+    height: 100%;
+    width: 50%;
+    background-color: #76c7c0;
+    animation: progress 3s ease-in-out forwards;
+}
+
+/* 진행 상태 설명 스타일 */
+.quality-explain {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 10px auto;
+    position: relative;
+}
+
+.quality-explain span {
+    flex: 1;
+    text-align: center;
+}
+
+.quality-line-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.quality-line {
+    position: relative;
+    height: 100%;
+    width: 0;
+    border-left: 1px solid #000;
+}
+
+/* 생산 수량 정보 스타일 */
+.qualcount {
+    margin: 10px 0;
+    position: relative;
+    left: 10%;
+}
+
+.progress-content {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    /* 적절한 너비로 설정, 필요에 따라 조정 가능 */
+    text-align: center;
+    top: 1px;
+    height: 850px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.progress-home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.probar {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.qualcount, .procount {
+    margin-top: 10px;
+    text-align: left;
+    /* 왼쪽 정렬 */
+}

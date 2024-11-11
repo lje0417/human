@@ -1,0 +1,49 @@
+﻿.pic {
+    width: 120px;
+    height: 140px;
+}
+
+.grey {
+    background-color: #E6E6E6;
+}
+
+table,
+tr,
+td {
+    border: 1px solid black;
+    width: 1000px;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+tr {
+    height: 40px;
+}
+
+.g_top,
+.g_bottom {
+    margin-bottom: 20px;
+}
+
+.g_change {
+    text-align: right;
+}
+
+.gwrap {
+    width: 1000px;
+    margin-left: 220px;
+    margin-top: 100px;
+}
+
+.g_pbtn {
+    background-color: #E6E6E6;
+    border: 1px solid black;
+    padding: 5px 20px;
+    font-weight: 700;
+    border-radius: 5px;
+    height: 40px;
+}
+
+.g_pbtn:hover{
+    background-color: #25c725;
+}

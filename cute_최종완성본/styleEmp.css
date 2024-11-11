@@ -1,0 +1,175 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.category {
+    background-color: #E6E6E6;
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    margin: 0;
+}
+
+.category-item {
+    position: relative;
+    width: 15%;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 20px;
+    line-height: 100px;
+}
+
+._category {
+    width: 100%;
+    height: 250px;
+    opacity: 0;
+    /* 초기 상태에서 투명하게 설정 */
+    visibility: hidden;
+    /* 기본적으로 보이지 않도록 설정 */
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    z-index: 3;
+    white-space: nowrap;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 50px;
+    padding-top: 50px;
+    box-shadow: 0 5px 0px rgba(119, 119, 119, 0.1);
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    /* 투명도와 가시성에 애니메이션 추가 */
+}
+
+.category:hover ._category {
+    opacity: 1;
+    /* Hover 시 불투명하게 설정 */
+    visibility: visible;
+    /* Hover 시 보이도록 설정 */
+}
+
+.menu-icon {
+    display: none;
+}
+
+
+.sidebar {
+    position: absolute;
+    top: 100px;
+    /* 메뉴 아래에 위치 */
+    width: 230px;
+    /* 사이드바 너비 */
+    background-color: #E6E6E6;
+    height: 1000px;
+}
+
+.category-item.active a {
+    color: #0085FF;
+    /* 기준관리 클릭 시 색상 변경 */
+}
+
+
+.category:hover ._category {
+    display: block;
+}
+
+a:hover {
+    color: #0085FF;
+    font-weight: bolder;
+}
+
+.bar {
+    width: 200px;
+    height: 700px;
+    background-color: #E6E6E6;
+    text-align: center;
+    line-height: 20px;
+}
+
+.bar a {
+    font-size: 20px;
+
+}
+
+.mypage-icon {
+    width: 40px;
+    position: relative;
+    text-align: center;
+    font-weight: bolder;
+    top: 10px;
+}
+
+.logo-icon {
+    width: 100px;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    width: 800px;
+    height: 50px;
+    line-height: 50px;
+}
+
+.flex>div {
+    flex: 1;
+    text-align: center;
+    line-height: 50px;
+}
+
+.round {
+    border: 1px solid black;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+span {
+    font-size: 10px;
+}
+
+.content {
+    position: absolute;
+    left: 300px;
+    top: 150px;
+    width: 1300px;
+}
+
+
+/* styles.css */
+.sidebar li.active {
+    color: #0085FF;
+    /* 클릭된 사이드바 항목의 색상 */
+    font-weight: bold;
+    /* 강조를 위해 볼드 처리 */
+}
+
+.title {
+    color: #0085FF;
+    font-weight: bold;
+    background-color: rgba(194, 211, 255, 0.364);
+    /* 배경 색상 */
+    border-radius: 5px;
+    /* 모서리 둥글게 */
+    padding: 7px 20px;
+}
+
+
+.sidebar ul>li {
+    padding-bottom: 10px;
+}
+
+
+

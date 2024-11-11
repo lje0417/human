@@ -1,0 +1,59 @@
+﻿body {
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.square {
+    background-color: white;
+    border: 1px solid black;
+    width: 400px;
+    height: auto;
+    text-align: center;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.square h1 {
+    margin-bottom: 20px;
+}
+
+.id,
+.password,
+.password-check,
+.email,
+.name {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.square button {
+    width: calc(100% - 20px);
+    padding: 10px 20px;
+    margin: 10px 5px 5px 5px;
+    border: 0px;
+    background-color: skyblue;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.square button:hover {
+    background-color: blue;
+}
+
+.close-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.close-button:hover {
+    background-color: #d32f2f;
+}

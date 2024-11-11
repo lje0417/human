@@ -1,0 +1,92 @@
+﻿        .content {
+            overflow: auto;
+            margin-left: 100px;
+            text-align: center;
+            width: 65%;
+            height: 750px;
+            padding-right: 272px;
+        }
+
+        /* 검색기능, 플러스버튼 */
+        .srTop{
+            width: 1000px;
+            margin-left: 100px;
+            height: 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* select, 제품추가, 제품삭제 */
+        #recipeSelect {
+            height: 48px;
+            padding: 5px 20px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        /* 제품추가랑 선택삭제 동일한 스타일적용예정 */
+        .btnStyle {
+            padding: 13px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+            background-color: #e6e6e6;
+            cursor: pointer;
+        }
+
+        .itemAdd:hover{
+            background-color: #81b3e9;
+        }
+
+        .delete-btn:hover {
+            background-color: #f38080;
+        }
+
+        /* 플러스이미지(추가버튼) */
+        .plus {
+            width: 48px;
+            height: 48px;
+            cursor: pointer;
+        }
+
+        /* 김치만두, 고기만두 테이블에 적용되는 css */
+        .sr_bom {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            height: 500px;
+            border:solid 1px #e6e6e6;
+        }
+
+        /* 휴지통이미지(삭제버튼) */
+        .bin {
+            width: 30px;
+            cursor: pointer;
+        }
+
+        /* 연필이미지(수정버튼) */
+        .pen {
+            width: 30px;
+            cursor: pointer;
+        }
+
+        /* 테이블헤드 색상, 크기 설정 */
+        .srTh {
+            background-color: #e6e6e6;
+            height: 50px;
+        }
+
+        .meat {
+            display: none;
+        }       
+
+        /* a채그 밑줄 안생기게 */
+        .mho:link {
+            color: initial; 
+            text-decoration: none; 
+        }
+        .mho:visited {
+            color: initial; 
+            text-decoration: none; 
+        }
